@@ -16,14 +16,17 @@ end
   def create
     @image = Image.new(resources_params)
 
-    if @image.save
+    if verify_recaptcha 
+      if @image.save
     @image_text = `tesseract "#{Rails.public_path}#{@image.attachment}" - -l eng --oem 3`
     flash[:success] = 'Image convert to Text success!'
     @image_destroy = `rm -f "#{Rails.public_path}#{@image.attachment}"`
     
     #debug path
     puts "#{Rails.public_path}#{@image.attachment}"
-
+      else
+        render 'new'
+      end
     else
       #debug errors
       puts @image.errors.full_messages

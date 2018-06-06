@@ -16,9 +16,16 @@
   </br>
 <%= form_for @image do |i| %>
   (only: jpg, jpeg, png, gif)
-  <%= i.file_field :attachment %> 
+  <div>
+    <%= i.file_field :attachment %> 
+  </div>
   </br>
-  <%= i.submit 'Convert', class: 'btn btn-primary' %>
+  <div>
+    <%= recaptcha_tags %>
+  </div>
+  <div>
+    <%= i.submit 'Convert', class: 'btn btn-primary' %>
+  </div>
 <% end %>
   </br>
   <div class="jumbotron">
