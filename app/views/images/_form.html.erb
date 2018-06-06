@@ -1,0 +1,40 @@
+<% if @image.errors.any? %>
+  <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <ul>
+        <% @image.errors.full_messages.each do |err| %>
+          <li><%= err %></li>
+        <% end %>
+      </ul>
+  </div>
+<% end %>
+
+<div class='well'>
+  <div class='title'>
+    <h2>Image to Text Beta</h2>
+  </div>
+  </br>
+<%= form_for @image do |i| %>
+  (only: jpg, jpeg, png, gif)
+  <%= i.file_field :attachment %> 
+  </br>
+  <%= i.submit 'Convert', class: 'btn btn-primary' %>
+<% end %>
+  </br>
+  <div class="jumbotron">
+    <p>
+      <%= @image_text %>
+    </p>
+  </div>
+
+  <div class="message">
+    <h4>Use high quality images to be more accurate. Thank you!</h4>
+  </div>
+
+
+  <div class="powered">
+    <h6>Developed by <a href="https://papooa.com/" target="_blank">papooa.com</a></h4>
+  </div>
+
+  <div style="clear: both;"></div>
+</div>
