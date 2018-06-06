@@ -17,9 +17,14 @@ end
     @image = Image.new(resources_params)
 
     if @image.save
-    @image_text = `tesseract /home/z/Programming/rails-dev/ocr/public/#{@image.attachment} - -l eng --oem 3`
+    @image_text = `tesseract "#{Rails.public_path}#{@image.attachment}" - -l eng --oem 3`
     flash[:success] = 'Image convert to Text success!'
+    
+    #debug path
+    puts "#{Rails.public_path}#{@image.attachment}"
+
     else
+      #debug errors
       puts @image.errors.full_messages
       render 'new'
     end
