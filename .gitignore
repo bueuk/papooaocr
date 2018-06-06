@@ -16,5 +16,5 @@ database.yml
 
 /node_modules
 /yarn-error.log
-
+public/uploads/image/*
 .byebug_history
