@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'carrierwave'
+gem 'file_validators'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'recaptcha', require: 'recaptcha/rails'
