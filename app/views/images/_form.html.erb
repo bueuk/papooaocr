@@ -9,52 +9,50 @@
   </div>
 <% end %>
 
-<div class='well'>
-  <div class='demo'>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/KuXFrfsgLAY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </div>
-
-  <div class='title'>
+<div class="jumbotron">
+<div class="row">
+  <div class="column">
     <h2>Image to Text Beta</h2>
-  </div>
-  </br>
-
-<%= form_for @image do |i| %>
-  <h6>(Max. Size: 10M, Only: jpg, jpeg, png, gif)</h6>
-  <div>
-    <%= i.file_field :attachment %> 
-  </div>
-  </br>
-  <div>
-    <%= select_tag 'language', options_from_collection_for_select(@languages, 'id', 'name') %> (make sure same with <i>Text Language</i> use at your image)
-  </div>
-  </br>
-  <div>
-    <%= recaptcha_tags %>
-  </div>
-  </br>
-  <div>
-    <%= i.submit 'Convert', class: 'btn btn-primary' %>
-  </div>
-<% end %>
-  </br>
-  <div class="jumbotron">
     <p>
-      <%= @image_text %>
+      <%= form_for @image do |i| %>
+        <h6>(Max. Size: 10M, Only: jpg, jpeg, png, gif)</h6>
+        <div>
+          <%= i.file_field :attachment %> 
+        </div>
+        </br>
+        <div>
+          <%= select_tag 'language', options_from_collection_for_select(@languages, 'id', 'name') %> (make sure same with <i>Text Language</i> use at your image)
+        </div>
+        </br>
+        <div>
+          <%= recaptcha_tags %>
+        </div>
+        </br>
+        <div>
+          <%= i.submit 'Convert', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
     </p>
   </div>
-
-  <div class="message">
-    <h4>Use high quality images to be more accurate. Thank you!</h4>
+  <div class="column">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/KuXFrfsgLAY?rel=0&amp;controls=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
   </div>
+</div>
+</div>
 
+<div class="jumbotron">
+  <div class="message">
+      <h4>Use clear text on the high quality images to be more accurate conversion. Thank you!</h4>
+  </div>
 
   <div class="powered">
     <h6>Developed by <a href="https://papooa.com/" target="_blank">papooa.com</a></h4>
   </div>
-
-  <div style="clear: both;"></div>
+<div style="clear: both;"></div>
 </div>
+
 
 <% @title = 'ImageToText Papooa OCR' %>
 <% @description = 'Free Convert Image to Text, Free OCR' %>
