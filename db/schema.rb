@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605151623) do
+ActiveRecord::Schema.define(version: 20180607071708) do
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image_text"
+    t.integer "language_id"
+  end
+
+  create_table "languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "lang_code"
   end
 
 end
